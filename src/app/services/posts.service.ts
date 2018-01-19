@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Post } from '../models/post';
 
 @Injectable()
 export class PostsService {
-  private posts = [
+  private idCount: number = 4;
+  private posts:Array<any> = [
     {
       id: 1,
       title: 'The First Title',
@@ -27,6 +29,13 @@ export class PostsService {
 
   public getPosts(){
     return this.posts;
+  }
+
+  public addPost(post: Post){
+    post.id=this.idCount;
+    this.posts.push(post);
+
+    this.idCount = this.idCount++;
   }
 
 }
