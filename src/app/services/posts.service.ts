@@ -35,7 +35,7 @@ export class PostsService {
     post.id=this.idCount;
     this.posts.push(post);
 
-    this.idCount = this.idCount++;
+    this.idCount++;
   }
 
 }

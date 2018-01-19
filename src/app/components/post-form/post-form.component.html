@@ -11,6 +11,8 @@
         <label for="title">Created at</label>
         <input type="text" [(ngModel)]='post.created_at' name='created_at'>
       </div>
-    <button type='button' (click)='postForm.reset()'>Reset</button>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type='button' (click)='postForm.reset()' [disabled]='carForm.form.pristine' class="btn btn-warning">Reset</button>
+    <button type='button' (click)='showPost()' class="btn btn-info">Preview</button>
+    <button type="submit" class="btn btn-success">Submit</button>
+
   </form>

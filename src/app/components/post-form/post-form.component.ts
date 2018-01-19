@@ -25,4 +25,11 @@ export class PostFormComponent implements OnInit {
     this.post= new Post();
   }
 
+  public showPost(){
+    alert(`
+    Title: ${this.post.title}
+    Text: ${this.post.text}
+    Created at: ${this.post.created_at}`)
+  }
+
 }
