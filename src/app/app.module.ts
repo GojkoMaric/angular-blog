@@ -7,10 +7,28 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { PostsService } from './services/posts.service';
+import { SinglePostComponent } from './components/single-post/single-post.component';
 
 const appRoutes: Routes = [
-  {path: '', component: PostsComponent },
-  {path: 'posts', component: PostsComponent }
+  {path: '',
+  redirectTo: '/posts',
+  pathMatch: 'full'
+  },
+  {
+    path: 'posts',
+    component: PostsComponent,
+    // children: [
+    //   {
+    //   path: ':id',
+    //   component: SinglePostComponent
+    //   }
+    // ]
+  },
+  {
+    path: 'posts/:id',
+    component: SinglePostComponent
+  } 
 ];
 
 @NgModule({
@@ -18,7 +36,8 @@ const appRoutes: Routes = [
     AppComponent,
     LayoutComponent,
     NavBarComponent,
-    PostsComponent
+    PostsComponent,
+    SinglePostComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +45,7 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  providers: [],
+  providers: [PostsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
