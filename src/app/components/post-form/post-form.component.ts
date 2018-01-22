@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./post-form.component.css']
 })
 export class PostFormComponent implements OnInit {
-  private post: Post = new Post();
+  private newPost: Post = new Post();
 
   constructor(private _postsService: PostsService,
               private router: Router,
@@ -19,17 +19,17 @@ export class PostFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  public addPost(post){
-    this._postsService.addPost(post);
+  public addPost(){
+    this._postsService.addPost(this.newPost);
     this.router.navigate(['/posts']);
-    this.post= new Post();
+    // this.post= new Post();
   }
 
   public showPost(){
     alert(`
-    Title: ${this.post.title}
-    Text: ${this.post.text}
-    Created at: ${this.post.created_at}`)
+    Title: ${this.newPost.title}
+    Text: ${this.newPost.text}
+    Created at: ${this.newPost.created_at}`)
   }
 
 }
