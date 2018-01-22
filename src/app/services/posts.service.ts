@@ -38,4 +38,12 @@ export class PostsService {
     this.idCount++;
   }
 
+  public getById(id: string){
+    return this.posts.find((p: Post) => p.id === parseInt(id,10));
+  }
+
+  public editPost(post: Post){
+    this.posts.splice(this.posts.indexOf(post),1,post);
+  }
+
 }

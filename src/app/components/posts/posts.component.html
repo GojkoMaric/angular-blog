@@ -13,6 +13,9 @@
         <td>
           <a [routerLink]="['/posts', post.id]">View</a>
         </td>
+        <td>
+          <a [routerLink]='["/edit", post.id]'>Edit Post</a>
+        </td>
       </tr>
     </tbody>
   </table>
