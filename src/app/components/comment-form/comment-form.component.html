@@ -1,0 +1,27 @@
+<div>
+  <h3>Add Comment</h3>
+  <form #commentForm='ngForm' (ngSubmit)='submit(); commentForm.reset()'>
+    <label for="username">Username</label>
+    <input #username='ngModel' [(ngModel)]='newComment.username' type="text" name='username' required minlength='2'>
+    <div *ngIf='username.invalid && (username.dirty || username.touched)'>
+      <div *ngIf='username.errors.required'>
+        Title is required.
+      </div>
+      <div *ngIf='username.errors.minlength'>
+        Title must be at least 2 characters long.
+      </div>
+    </div>
+    <label for="text">Text</label>
+    <input #text='ngModel' [(ngModel)]='newComment.text' type="text" name='text' required maxlength="300">
+    <div *ngIf='text.invalid && (text.dirty || text.touched)'>
+      <div *ngIf='text.errors.required'>
+        Text is required.
+      </div>
+      <div *ngIf='text.errors.maxlenght'>
+        Text must be less than 300 characters long.
+      </div>
+    </div>
+    <button>Add</button>
+    <button type='reset' (click)='commentForm.reset()' [disabled]='commentForm.form.pristine'>Reset</button>
+  </form>
+</div>

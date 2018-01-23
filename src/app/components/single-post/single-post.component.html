@@ -5,3 +5,11 @@
 <p>{{post.created_at}}</p>
 
 
+<ul>
+    <li *ngFor='let comment of post.comments'>
+        {{comment.username}}: {{comment.text}}
+    </li>
+</ul>
+
+<app-comment-form (onSubmit)='addComment($event)'></app-comment-form>
+

@@ -16,6 +16,11 @@
         <td>
           <a [routerLink]='["/edit", post.id]'>Edit Post</a>
         </td>
+        <td>
+          <button (click)='delete(post)'>
+            Delete
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
